@@ -42,4 +42,8 @@
 
     <!-- Margin on the right side of the system icon group on Keyguard. -->
     <dimen name="system_icons_keyguard_padding_end">24px</dimen>
+
+    <!-- The maximum offset in either direction that elements are moved horizontally to prevent
+         burn-in on AOD. -->
+    <dimen name="burn_in_prevention_offset_x">0dp</dimen>
 </resources>
