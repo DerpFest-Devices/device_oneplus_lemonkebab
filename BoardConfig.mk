@@ -165,6 +165,9 @@ DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
 # Init
 TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_sm8250
 
+# Init
+TARGET_INIT_VENDOR_LIB := //$(COMMON_PATH):libinit_sm8250
+
 # Metadata
 BOARD_USES_METADATA_PARTITION := true
 
