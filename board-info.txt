@@ -1,0 +1,1 @@
+board=kona|kebab|OnePlus8T|lemonades|OnePlus9R
