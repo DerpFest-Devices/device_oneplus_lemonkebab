@@ -28,6 +28,7 @@ BUILD_BROKEN_MISSING_REQUIRED_MODULES := true
 BOARD_VENDOR := oneplus
 
 DEVICE_PATH := device/oneplus/lemonkebab
+TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/board-info.txt
 
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 
