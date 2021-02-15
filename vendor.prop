@@ -18,8 +18,6 @@ persist.vendor.audio.spv3.enable=true
 persist.vendor.audio.voicecall.speaker.stereo=true
 persist.vendor.audio_hal.dsp_bit_width_enforce_mode=24
 ro.audio.monitorRotation=true
-ro.config.media_vol_steps=30
-ro.config.vc_call_vol_steps=9
 ro.vendor.audio.sdk.fluencetype=fluence
 ro.vendor.audio.sdk.ssr=false
 ro.vendor.dolby.dax.version=DAX3_3.5.6.11_r1
@@ -95,7 +93,6 @@ vendor.voice.path.for.pcm.voip=true
 persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac
 persist.bluetooth.a2dp_offload.disabled=false
 persist.sys.fflag.override.settings_bluetooth_hearing_aid=true
-persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac
 persist.vendor.bt.aac_frm_ctl.enabled=true
 persist.vendor.bt.aac_vbr_frm_ctl.enabled=true
 persist.vendor.oneplus.bt.asd.chain=0
@@ -120,9 +117,7 @@ vendor.camera.aux.packagelist=com.oem.autotest,com.oneplus.factorymode,com.onepl
 
 # Crypto
 ro.crypto.allow_encrypt_override=true
-ro.crypto.dm_default_key.options_format.version=2
 ro.crypto.volume.filenames_mode=aes-256-cts
-ro.crypto.volume.metadata.method=dm-default-key
 
 # Dalvik
 dalvik.vm.heapgrowthlimit=256m
@@ -158,9 +153,6 @@ ro.frp.pst=/dev/block/bootdevice/by-name/config
 # Gatekeeper
 vendor.gatekeeper.disable_spu=true
 
-# GPS
-persist.backup.ntpServer=0.pool.ntp.org
-
 # Graphics
 debug.egl.hw=0
 debug.mdpcomp.logs=0
@@ -172,7 +164,6 @@ debug.sf.high_fps_late_app_phase_offset_ns=1000000
 debug.sf.high_fps_late_sf_phase_offset_ns=-4000000
 debug.sf.hw=0
 debug.sf.latch_unsignaled=0
-persist.demo.hdmirotationlock=false
 persist.sys.sf.color_mode=0
 persist.sys.sf.color_saturation=1.0
 persist.sys.sf.native_mode=0
@@ -182,9 +173,6 @@ ro.hardware.egl=adreno
 ro.hardware.vulkan=adreno
 ro.opengles.version=196610
 vendor.gralloc.disable_ubwc=0
-
-# Incremental FS
-ro.incremental.enable=true
 
 # Keystore
 ro.hardware.keystore_desede=true
@@ -209,9 +197,6 @@ ro.vendor.extension_library=libqti-perfd-client.so
 persist.vendor.qcomsysd.enabled=1
 
 # Radio
-persist.radio.snapshot_enabled=0
-persist.radio.snapshot_timer=0
-persist.rcs.otp_sms_port=0
 persist.rcs.supported=1
 persist.vendor.data.iwlan.enable=true
 persist.vendor.radio.5g_mode_pref=1
