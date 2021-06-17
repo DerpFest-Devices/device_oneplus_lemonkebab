@@ -23,6 +23,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 # Get non-open-source specific aspects
 $(call inherit-product, vendor/oneplus/lemonkebab/lemonkebab-vendor.mk)
 
+# Inherit OnePlusCamera from vendor/oneplus/addons/camera
+$(call inherit-product, vendor/oneplus/addons/camera/camera-vendor.mk)
+
 # Additional native libraries
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
@@ -34,17 +37,22 @@ DEVICE_PACKAGE_OVERLAYS += \
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
+# API Level
+PRODUCT_SHIPPING_API_LEVEL := 30
+
+# VNDK
+PRODUCT_USE_PRODUCT_VNDK_OVERRIDE := true
+
+# Partitions
+PRODUCT_BUILD_SUPER_PARTITION := false
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
+
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 # AVB Key
 TARGET_USES_CUSTOM_AVB_KEY := true
-
-# VNDK
-PRODUCT_USE_PRODUCT_VNDK_OVERRIDE := true
-
-PRODUCT_EXTRA_VNDK_VERSIONS := 30
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -199,7 +207,7 @@ PRODUCT_PACKAGES_DEBUG += \
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service_64 \
-    Snap \
+    libcamera2ndk_vendor \
     vendor.qti.hardware.camera.postproc@1.0.vendor
 
 # Common init scripts
@@ -279,7 +287,6 @@ PRODUCT_PACKAGES += \
     vendor.display.config@1.9.vendor \
     vendor.display.config@2.0 \
     vendor.display.config@2.0.vendor \
-    vendor.oneplus.hardware.display@1.0 \
     vendor.oneplus.hardware.display@1.0.vendor \
     vendor.qti.hardware.display.allocator-service \
     vendor.qti.hardware.display.composer-service \
@@ -319,6 +326,9 @@ PRODUCT_PACKAGES += \
 
 # HIDL
 PRODUCT_PACKAGES += \
+    libhidltransport \
+    libhidltransport.vendor \
+    libhwbinder \
     libhwbinder.vendor
 
 # HotwordEnrollement app permissions
@@ -406,6 +416,11 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_BOOT_JARS += \
     oneplus-fwk.oneplus_kona
+
+# OnePlus Apps
+PRODUCT_PACKAGES += \
+    OnePlusCameraOverlay \
+    OnePlusGalleryOverlay
 
 # Power
 PRODUCT_PACKAGES += \
@@ -599,12 +614,6 @@ PRODUCT_BOOT_JARS += \
 # Wifi Overlay
 PRODUCT_PACKAGES += \
     OnePlus8TWifiOverlay
-
-# API Level
-PRODUCT_SHIPPING_API_LEVEL := 31
-
-PRODUCT_BUILD_SUPER_PARTITION := true
-PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # Surface Flinger
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
