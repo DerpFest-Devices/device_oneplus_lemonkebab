@@ -31,6 +31,7 @@
     <protected-broadcast android:name="com.android.systemui.doze.pulse" />
     <protected-broadcast android:name="org.derp.device.DeviceExtras.UPDATE_SLIDER_POSITION" />
     <protected-broadcast android:name="org.derp.device.DeviceExtras.UPDATE_SLIDER_SETTINGS" />
+    <protected-broadcast android:name="org.derp.device.DeviceExtras.UPDATE_SETTINGS" />
 
     <uses-sdk
         android:minSdkVersion="28"
@@ -42,6 +43,12 @@
         android:theme="@style/AppTheme"
         android:defaultToDeviceProtectedStorage="true"
         android:directBootAware="true">
+
+        <activity
+            android:name=".TouchscreenGestureSettings"
+            android:label="@string/touchscreen_gesture_settings_title"
+            android:theme="@style/AppTheme">
+        </activity>
 
         <!-- DeviceExtras -->
         <activity
