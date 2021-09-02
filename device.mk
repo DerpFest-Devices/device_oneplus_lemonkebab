@@ -21,7 +21,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 
 # Get non-open-source specific aspects
-$(call inherit-product, vendor/oneplus/kebab/kebab-vendor.mk)
+$(call inherit-product, vendor/oneplus/lemonkebab/lemonkebab-vendor.mk)
 
 # Additional native libraries
 PRODUCT_COPY_FILES += \
@@ -39,7 +39,7 @@ PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 # AVB Key
-TARGET_USES_CUSTOM_AVB_KEY := true
+#TARGET_USES_CUSTOM_AVB_KEY := true
 
 # VNDK
 PRODUCT_USE_PRODUCT_VNDK_OVERRIDE := true

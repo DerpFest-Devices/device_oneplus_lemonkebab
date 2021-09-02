@@ -18,8 +18,8 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit from kebab device
-$(call inherit-product, device/oneplus/kebab/device.mk)
+# Inherit from lemonkebab device
+$(call inherit-product, device/oneplus/lemonkebab/device.mk)
 
 # Inherit some common DerpFest stuff.
 $(call inherit-product, vendor/derp/config/common_full_phone.mk)
@@ -28,14 +28,10 @@ $(call inherit-product, vendor/derp/config/common_full_phone.mk)
 TARGET_BOOT_ANIMATION_RES := 1080
 
 # Device identifier. This must come after all inclusions.
-PRODUCT_NAME := derp_kebab
-PRODUCT_DEVICE := kebab
+PRODUCT_NAME := derp_lemonkebab
+PRODUCT_DEVICE := lemonkebab
 PRODUCT_MANUFACTURER := OnePlus
 PRODUCT_BRAND := OnePlus
-PRODUCT_MODEL := OnePlus8T
+PRODUCT_MODEL := LE2101
 
 PRODUCT_GMS_CLIENTID_BASE := android-oneplus
-
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_DEVICE=OnePlus8T \
-    PRODUCT_NAME=OnePlus8T
