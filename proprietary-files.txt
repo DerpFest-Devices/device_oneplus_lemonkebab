@@ -63,7 +63,7 @@ system_ext/lib64/com.qualcomm.qti.ant@1.0.so
 vendor/lib64/hw/com.dsi.ant@1.0-impl.so
 
 # Audio firmware - from OnePlus9Oxygen_22.I.08_GLO_0080_2105011324
-vendor/firmware/tfa98xx.cnt|3273540edc56b3959a4c8d994c3e2fa0bd6d2cb8
+vendor/firmware/tfa98xx.cnt|5578bfb86a4123af049c2885af7b30d3fd0a53e4
 
 # Audio libraries
 vendor/lib/soundfx/libasphere.so
