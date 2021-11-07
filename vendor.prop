@@ -167,6 +167,8 @@ vendor.gralloc.disable_ubwc=0
 ro.hardware.keystore_desede=true
 
 # Media
+debug.media.transcoding.codec_max_operating_rate_720P=240
+debug.media.transcoding.codec_max_operating_rate_1080P=120
 debug.stagefright.ccodec=4
 debug.stagefright.omx_default_rank=0
 
