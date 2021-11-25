@@ -37,17 +37,12 @@
 #define OP_DISPLAY_NOTIFY_PRESS 9
 #define OP_DISPLAY_AOD_MODE 8
 
-#define DC_DIM_PATH "/sys/class/drm/card0-DSI-1/dimlayer_bl_en"
-#define NATIVE_DISPLAY_LOADING_EFFECT "/sys/class/drm/card0-DSI-1/native_display_loading_effect_mode"
-#define NATIVE_DISPLAY_CUSTOMER_P3 "/sys/class/drm/card0-DSI-1/native_display_customer_p3_mode"
-#define NATIVE_DISPLAY_CUSTOMER_SRGB "/sys/class/drm/card0-DSI-1/native_display_customer_srgb_mode"
 #define NATIVE_DISPLAY_P3 "/sys/class/drm/card0-DSI-1/native_display_p3_mode"
 #define NATIVE_DISPLAY_SRGB "/sys/class/drm/card0-DSI-1/native_display_srgb_color_mode"
-#define NATIVE_DISPLAY_WIDE "/sys/class/drm/card0-DSI-1/native_display_wide_color_mode"
+#define POWER_STATUS_PATH "/sys/class/drm/card0-DSI-1/power_status"
 
 
-int c_p3,c_srgb,p3,srgb,wide;
-bool dcDimState;
+int p3,srgb;
 
 /*
  * Write value to path and close file.
@@ -123,36 +118,19 @@ Return<void> BiometricsFingerprint::onFingerUp() {
 }
 
 Return<void> BiometricsFingerprint::onShowUdfpsOverlay() {
-    c_p3 = get(NATIVE_DISPLAY_CUSTOMER_P3, 0);
-    c_srgb = get(NATIVE_DISPLAY_CUSTOMER_SRGB, 0);
     p3 = get(NATIVE_DISPLAY_P3, 0);
     srgb = get(NATIVE_DISPLAY_SRGB, 0);
-    wide = get(NATIVE_DISPLAY_WIDE, 0);
-    dcDimState = get(DC_DIM_PATH, 0);
-    set(DC_DIM_PATH, 0);
     set(NATIVE_DISPLAY_SRGB, 0);
     set(NATIVE_DISPLAY_P3, 0);
-    set(NATIVE_DISPLAY_CUSTOMER_P3, 0);
-    set(NATIVE_DISPLAY_CUSTOMER_SRGB, 0);
-    set(NATIVE_DISPLAY_LOADING_EFFECT, 1);
-    set(NATIVE_DISPLAY_WIDE, 1);
     return Void();
 }
 
 Return<void> BiometricsFingerprint::onHideUdfpsOverlay() {
-    set(NATIVE_DISPLAY_CUSTOMER_P3, 0);
-    set(NATIVE_DISPLAY_CUSTOMER_SRGB, 0);
     set(NATIVE_DISPLAY_P3, 0);
     set(NATIVE_DISPLAY_SRGB, 0);
-    set(NATIVE_DISPLAY_LOADING_EFFECT, 0);
-    set(NATIVE_DISPLAY_WIDE, 0);
-    set(NATIVE_DISPLAY_CUSTOMER_P3, c_p3);
-    set(NATIVE_DISPLAY_CUSTOMER_SRGB, c_srgb);
     set(NATIVE_DISPLAY_P3, p3);
     set(NATIVE_DISPLAY_SRGB, srgb);
-    set(NATIVE_DISPLAY_WIDE, wide);
-    set(DC_DIM_PATH, dcDimState);
-
+    mVendorDisplayService->setMode(OP_DISPLAY_NOTIFY_PRESS, 0);
     mVendorDisplayService->setMode(OP_DISPLAY_SET_DIM, 0);
     mVendorDisplayService->setMode(OP_DISPLAY_AOD_MODE, 0);
     return Void();
@@ -248,6 +226,8 @@ Return<uint64_t> BiometricsFingerprint::setNotify(
 }
 
 Return<uint64_t> BiometricsFingerprint::preEnroll()  {
+    mVendorDisplayService->setMode(OP_DISPLAY_NOTIFY_PRESS, 0);
+    set(POWER_STATUS_PATH, 1);
     return mDevice->pre_enroll(mDevice);
 }
 
@@ -304,8 +284,9 @@ Return<RequestStatus> BiometricsFingerprint::setActiveGroup(uint32_t gid,
 
 Return<RequestStatus> BiometricsFingerprint::authenticate(uint64_t operationId,
         uint32_t gid) {
+    mVendorDisplayService->setMode(OP_DISPLAY_SET_DIM, 0);
+    set(POWER_STATUS_PATH, 1);
     mVendorFpService->updateStatus(OP_ENABLE_FP_LONGPRESS);
-    onHideUdfpsOverlay();
     return ErrorFilter(mDevice->authenticate(mDevice, operationId, gid));
 }
 
