@@ -21,9 +21,7 @@ allow hal_fingerprint_default vendor_sysfs_battery_supply:file { read open };
 
 allow hal_fingerprint_default mnt_vendor_file:dir { search write add_name create };
 allow hal_fingerprint_default mnt_vendor_file:file create;
-allow hal_fingerprint_default public_adsprpcd_file:file { read open getattr };
 
-get_prop(hal_fingerprint_default, vendor_adsprpc_prop)
 get_prop(hal_fingerprint_default, vendor_default_prop)
 set_prop(hal_fingerprint_default, vendor_fingerprint_prop)
 
