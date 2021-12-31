@@ -395,6 +395,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/odm_feature_list:$(TARGET_COPY_OUT_ODM)/etc/odm_feature_list
 
+# OnePlus
+PRODUCT_PACKAGES += \
+    oneplus-fwk.oneplus_kona
+
+PRODUCT_BOOT_JARS += \
+    oneplus-fwk.oneplus_kona
+
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service-qti \
