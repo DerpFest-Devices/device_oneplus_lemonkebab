@@ -13,5 +13,6 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <string name="maintainer_name">Anthony Pyrtle (Pyrtle93)</string>
+    <string name="maintainer_telegram" translatable="false">https://t.me/Derp8t</string>
 
 </resources>
