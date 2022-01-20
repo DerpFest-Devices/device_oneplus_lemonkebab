@@ -80,7 +80,7 @@ TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := OnePlus8T,OnePlus9R
+TARGET_OTA_ASSERT_DEVICE := OnePlus8T,OnePlus9R,lemonades,kebab,lemonkebab
 
 # Treble
 BOARD_VNDK_VERSION := current
