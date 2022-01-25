@@ -24,7 +24,8 @@ $(call inherit-product, device/oneplus/lemonkebab/device.mk)
 # Inherit some common DerpFest stuff.
 $(call inherit-product, vendor/derp/config/common_full_phone.mk)
 
-# FOD
+# Xtras
+DERP_BUILDTYPE := Official
 EXTRA_UDFPS_ANIMATIONS := true
 
 # Boot Animation
