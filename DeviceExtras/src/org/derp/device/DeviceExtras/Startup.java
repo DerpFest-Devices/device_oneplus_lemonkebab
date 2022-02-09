@@ -56,11 +56,7 @@ public class Startup extends BroadcastReceiver {
         enabled = sharedPrefs.getBoolean(DeviceExtras.KEY_GAME_SWITCH, false);
         if (enabled) {
         restore(GameModeSwitch.getFile(), enabled);
-               }
-        enabled = sharedPrefs.getBoolean(DeviceExtras.KEY_USB2_SWITCH, false);
-        if (enabled) {
-        restore(USB2FastChargeModeSwitch.getFile(), enabled);
-       }
+        }
         DeviceExtras.restoreSliderStates(context);
         org.derp.device.DeviceExtras.doze.DozeUtils.checkDozeService(context);
         org.derp.device.DeviceExtras.kcal.KCalSettings.restore(context);
