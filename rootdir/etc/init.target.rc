@@ -149,6 +149,8 @@ on boot
     chmod 0666 /sys/class/drm/card0-DSI-1/native_display_customer_p3_mode
     chmod 0666 /sys/class/drm/card0-DSI-1/dimlayer_bl_en
     chmod 0666 /sys/class/drm/card0-DSI-1/dither_en
+    chmod 0666 /sys/devices/platform/soc/soc:tri_state_key/tri_state
+    chown system system /sys/devices/platform/soc/soc:tri_state_key/tri_state
 
 # v-takey.zheng@SYSTEM, 2020/06/03 Add for oemlogkit camera log
     chmod 0666 /sys/module/cam_debug_util/parameters/debug_mdl

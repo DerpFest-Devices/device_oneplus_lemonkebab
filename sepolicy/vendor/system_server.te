@@ -9,3 +9,5 @@ allow system_server app_zygote:process { getattr getpgid };
 allow system_server proc_touchpanel:dir { search };
 
 allow system_server vendor_proc_shs:dir { search };
+
+allow system_server sysfs_tri_state_key:file { read open write getattr };
