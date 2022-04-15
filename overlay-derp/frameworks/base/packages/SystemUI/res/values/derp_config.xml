@@ -12,7 +12,7 @@
 -->
 <resources>
     <!-- Udfps vendor code -->
-    <integer name="config_udfps_vendor_code">0</integer>
+    <integer name="config_udfpsVendorCode">0</integer>
 
     <!-- Color of the UDFPS Pressed view -->
     <color name="config_udfpsColor">#ffffe6</color>
