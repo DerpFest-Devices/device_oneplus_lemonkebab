@@ -70,4 +70,7 @@
 
     <!-- NightLight FOD -->
     <bool name="disable_fod_night_light">true</bool>
+
+    <!-- the number of the max cached processes in the system. -->
+    <integer name="config_customizedMaxCachedProcesses">80</integer>
 </resources>
